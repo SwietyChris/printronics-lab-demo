@@ -666,7 +666,15 @@
           <div class="demo-credentials-callout">
             <span class="callout-icon">💡</span>
             <div class="callout-body">
-              <strong>Presentation Demo Access:</strong> Use Username: <code class="auth-code">demo</code> &bull; Password: <code class="auth-code">demo</code>
+              <div style="font-weight:600;margin-bottom:0.35rem;">Live Presentation Demo Roles (Click to autofill):</div>
+              <div class="demo-role-buttons">
+                <button type="button" id="btnFillAdmin" class="btn btn-xs btn-outline" style="border-color:#c084fc;color:#e879f9;">
+                  👑 <strong>Professor (PI Admin):</strong> demo / demo
+                </button>
+                <button type="button" id="btnFillStudent" class="btn btn-xs btn-outline" style="border-color:#38bdf8;color:#38bdf8;">
+                  🎓 <strong>Lab Member (Student):</strong> student / student
+                </button>
+              </div>
             </div>
           </div>
 
@@ -692,25 +700,32 @@
         <div id="intranetWorkspace" style="display:none;">
           <div class="intranet-header glass-panel">
             <div class="intranet-title-box">
-              <div class="auth-user-tag">
+              <div class="auth-user-tag" id="intraUserTag">
                 <span class="status-indicator online"></span>
-                <strong>Authenticated:</strong> Prof. Cheng-Yao Lo (PI &amp; Administrator) &bull; <span class="badge badge-accent">Role: Super Admin</span>
+                <span id="intraUserRoleText"><strong>Authenticated:</strong> Prof. Cheng-Yao Lo &bull; <span class="badge badge-accent">Role: Super Admin</span></span>
               </div>
-              <h2>Printronics Lab Intranet &amp; Management Console</h2>
-              <p>Manage public website content, view internal inventories, allocate MCUs, track chemical precursors, and manage member credentials.</p>
+              <h2 id="intraWorkspaceTitle">Printronics Lab Intranet &amp; Management Console</h2>
+              <p id="intraWorkspaceSubtitle">Manage public website content, view internal inventories, allocate MCUs, track chemical precursors, and manage member credentials.</p>
             </div>
             <div class="intranet-actions">
               <button id="btnIntranetSignOut" class="btn btn-outline btn-sm" style="border-color:rgba(239,68,68,0.5);color:#f87171;">🔒 Sign Out</button>
             </div>
           </div>
 
+          <div id="studentNoticeBox" class="student-notice-box" style="display:none;">
+            <span style="font-size:1.3rem;">ℹ️</span>
+            <div>
+              <strong>Student / Researcher Access Level:</strong> You have verified access to internal chemical inventories, embedded hardware allocations, and equipment SOPs. <em>Website modification tools and security credentials management are restricted to the PI / Administrator.</em>
+            </div>
+          </div>
+
           <!-- Intranet Tabs Navigation -->
           <div class="intra-tabs">
-            <button class="intra-tab active" data-intra="editor">
+            <button class="intra-tab admin-only-tab active" data-intra="editor">
               <span class="tab-icon">✨</span>
               1. PI Visual Website Editor
             </button>
-            <button class="intra-tab" data-intra="access">
+            <button class="intra-tab admin-only-tab" data-intra="access">
               <span class="tab-icon">👥</span>
               2. Access Control &amp; User Accounts
             </button>

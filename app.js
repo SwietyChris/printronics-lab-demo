@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. Authenticated Intranet Portal & Access Control Flow
+  // 7. Authenticated Intranet Portal & Multi-Role Access Control (Admin vs. Student)
   // ==========================================================================
   const authGate = document.getElementById('intranetAuthGate');
   const workspace = document.getElementById('intranetWorkspace');
@@ -178,16 +178,87 @@ document.addEventListener('DOMContentLoaded', () => {
   const intraError = document.getElementById('intraError');
   const btnSignOut = document.getElementById('btnIntranetSignOut');
 
+  const btnFillAdmin = document.getElementById('btnFillAdmin');
+  const btnFillStudent = document.getElementById('btnFillStudent');
+  const intraUserRoleText = document.getElementById('intraUserRoleText');
+  const intraWorkspaceTitle = document.getElementById('intraWorkspaceTitle');
+  const intraWorkspaceSubtitle = document.getElementById('intraWorkspaceSubtitle');
+  const studentNoticeBox = document.getElementById('studentNoticeBox');
+  const adminOnlyTabs = document.querySelectorAll('.admin-only-tab');
+
+  // Quick autofill buttons for presentation
+  if (btnFillAdmin) {
+    btnFillAdmin.addEventListener('click', () => {
+      intraUser.value = 'demo';
+      intraPass.value = 'demo';
+      if (intraError) intraError.style.display = 'none';
+      showToast('Autofilled Professor Admin (demo / demo)');
+    });
+  }
+
+  if (btnFillStudent) {
+    btnFillStudent.addEventListener('click', () => {
+      intraUser.value = 'student';
+      intraPass.value = 'student';
+      if (intraError) intraError.style.display = 'none';
+      showToast('Autofilled Lab Student (student / student)');
+    });
+  }
+
   function updateIntranetAuthUI() {
     const isAuth = sessionStorage.getItem('printronics_auth') === 'true';
-    if (authGate && workspace) {
-      if (isAuth) {
-        authGate.style.display = 'none';
-        workspace.style.display = 'block';
-      } else {
-        authGate.style.display = 'block';
-        workspace.style.display = 'none';
+    const role = sessionStorage.getItem('printronics_role') || 'admin';
+
+    if (!authGate || !workspace) return;
+
+    if (!isAuth) {
+      authGate.style.display = 'block';
+      workspace.style.display = 'none';
+      return;
+    }
+
+    authGate.style.display = 'none';
+    workspace.style.display = 'block';
+
+    if (role === 'admin') {
+      // Role: Professor / Super Admin
+      if (intraUserRoleText) {
+        intraUserRoleText.innerHTML = '<strong>Authenticated:</strong> Prof. Cheng-Yao Lo (PI &amp; Super Admin) &bull; <span class="badge badge-accent">Role: Super Admin</span>';
       }
+      if (intraWorkspaceTitle) {
+        intraWorkspaceTitle.textContent = 'Printronics Lab Intranet & Management Console';
+      }
+      if (intraWorkspaceSubtitle) {
+        intraWorkspaceSubtitle.textContent = 'Manage public website content, view internal inventories, allocate MCUs, track chemical precursors, and manage member credentials.';
+      }
+      if (studentNoticeBox) studentNoticeBox.style.display = 'none';
+
+      // Show Admin-only tabs
+      adminOnlyTabs.forEach(t => t.style.display = 'inline-flex');
+
+      // Activate Editor tab by default for Admin
+      const editorTab = document.querySelector('.intra-tab[data-intra="editor"]');
+      if (editorTab) editorTab.click();
+
+    } else {
+      // Role: Lab Student / Researcher (Read-only Internal Data)
+      if (intraUserRoleText) {
+        intraUserRoleText.innerHTML = '<strong>Authenticated:</strong> Lab Student / Researcher &bull; <span class="badge badge-cyan">Role: Lab Member</span>';
+      }
+      if (intraWorkspaceTitle) {
+        intraWorkspaceTitle.textContent = 'Printronics Lab Member Intranet Portal';
+      }
+      if (intraWorkspaceSubtitle) {
+        intraWorkspaceSubtitle.textContent = 'Internal equipment booking logs, chemical precursor tracking, hardware inventory, and lab SOPs.';
+      }
+      if (studentNoticeBox) studentNoticeBox.style.display = 'flex';
+
+      // Hide Admin-only tabs (PI Editor & Access Control)
+      adminOnlyTabs.forEach(t => t.style.display = 'none');
+
+      // Deactivate admin views and activate chemical precursor tab by default
+      const precursorTab = document.querySelector('.intra-tab[data-intra="precursor"]');
+      if (precursorTab) precursorTab.click();
     }
   }
 
@@ -198,20 +269,24 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const u = intraUser.value.trim().toLowerCase();
-      const p = intraPass.value.trim();
+      const p = intraPass.value.trim().toLowerCase();
 
       if (u === 'demo' && p === 'demo') {
         if (intraError) intraError.style.display = 'none';
         sessionStorage.setItem('printronics_auth', 'true');
+        sessionStorage.setItem('printronics_role', 'admin');
         updateIntranetAuthUI();
-        showToast('🔓 Welcome, Prof. Cheng-Yao Lo! Intranet & Editor Unlocked.');
-        // Activate Editor tab by default
-        const editorTab = document.querySelector('.intra-tab[data-intra="editor"]');
-        if (editorTab) editorTab.click();
+        showToast('👑 Signed in as Professor / PI (Super Admin) - Full Site & Intranet Control');
+      } else if (u === 'student' && p === 'student') {
+        if (intraError) intraError.style.display = 'none';
+        sessionStorage.setItem('printronics_auth', 'true');
+        sessionStorage.setItem('printronics_role', 'student');
+        updateIntranetAuthUI();
+        showToast('🎓 Signed in as Lab Student - Equipment & Inventories View');
       } else {
         if (intraError) {
           intraError.style.display = 'block';
-          intraError.textContent = '⚠️ Invalid credentials. Demo login: Username = demo | Password = demo';
+          intraError.textContent = '⚠️ Invalid credentials. Demo Logins: demo / demo (Professor) or student / student (Student)';
         }
       }
     });
@@ -220,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnSignOut) {
     btnSignOut.addEventListener('click', () => {
       sessionStorage.removeItem('printronics_auth');
+      sessionStorage.removeItem('printronics_role');
       updateIntranetAuthUI();
       showToast('🔒 Signed out of Lab Intranet session.');
       const intraSection = document.getElementById('intranet');
