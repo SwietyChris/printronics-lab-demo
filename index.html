@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexible Printronics Lab | 國立清華大學 軟性印刷電子實驗室</title>
+  <meta name="description" content="Flexible Printronics Lab at National Tsing Hua University (NTHU). Specializing in micro/nano printing, flexible capacitive sensors, sintering processes, and system integration.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Announcement">
+    <div class="container top-bar-content">
+      <div class="top-announcement">
+        <span class="badge badge-accent">News 2025</span>
+        <span class="announcement-text">Y.W. Chen elected Honorary Member of the Phi Tau Phi Scholastic Honor Society</span>
+      </div>
+      <div class="top-quick-links">
+        <a href="#intranet" class="intranet-link">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7zm3 7a2 2 0 0 1 1 1.73l.42 2.55a.5.5 0 0 1-.5.72h-1.84a.5.5 0 0 1-.5-.72l.42-2.55A2 2 0 0 1 12 14z"/></svg>
+          Lab Intranet (Phase 3 Demo)
+        </a>
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle Theme">
+          <svg id="themeIcon" class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <a href="#hero" class="brand-link" aria-label="Printronics Lab Homepage">
+        <img src="assets/lab_logo.png" alt="Printronics Lab Logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-title">Flexible Printronics Lab</div>
+          <div class="brand-sub">National Tsing Hua University &bull; Inst. NEMS & Dept. PME</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#research" class="nav-link">Research</a></li>
+          <li><a href="#members" class="nav-link">Members</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
+          <li><a href="#facilities" class="nav-link">Facilities</a></li>
+          <li><a href="#news" class="nav-link">News</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#intranet" class="btn btn-outline-purple">Intranet Portal</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#about" class="mob-link">About Us</a></li>
+      <li><a href="#research" class="mob-link">Research Pillars</a></li>
+      <li><a href="#members" class="mob-link">Team & Members</a></li>
+      <li><a href="#publications" class="mob-link">Document Center</a></li>
+      <li><a href="#facilities" class="mob-link">Equipment & Facilities</a></li>
+      <li><a href="#news" class="mob-link">News & Awards</a></li>
+      <li><a href="#contact" class="mob-link">Contact</a></li>
+      <li><a href="#intranet" class="mob-link mob-highlight">Lab Intranet Portal (Phase 3)</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>NTHU &bull; Advanced Micro/Nano Manufacturing</span>
+          </div>
+          <h1 class="hero-headline">
+            Engineering the Future of <br>
+            <span class="gradient-text">Flexible Printronics</span> & Sensing.
+          </h1>
+          <p class="hero-desc">
+            We research and innovate direct-write inkjet micro-deposition, high-performance sintering kinetics, 
+            high-sensitivity capacitive tactile sensor architectures, and wearable multi-sensor system integration.
+          </p>
+          <div class="hero-actions">
+            <a href="#research" class="btn btn-primary">
+              Explore Research Pillars
+              <svg class="icon-inline" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#intranet" class="btn btn-secondary">
+              View Intranet Prototype
+              <svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5z"/></svg>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Grid -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <div class="metric-val">50+</div>
+              <div class="metric-label">Journal & Conf. Papers</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">15+</div>
+              <div class="metric-label">Precision Facilities</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">3</div>
+              <div class="metric-label">Core Pillars</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">100%</div>
+              <div class="metric-label">Offline Ready</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-featured">
+            <img src="assets/banner.jpg" alt="Lab Banner" class="featured-img" onerror="this.src='assets/Pancham-porosity.jpg'">
+            <div class="card-glass-overlay">
+              <div class="overlay-tag">Flagship Platform</div>
+              <div class="overlay-title">Porous Capacitive Tactile Arrays</div>
+              <div class="overlay-sub">Up to 6-fold sensitivity enhancement via Poisson's ratio engineered porous Janus architecture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">About Our Laboratory</span>
+          <h2 class="section-title">The Flexible Printronics Lab</h2>
+          <p class="section-subtitle">清華大學 軟性印刷電子實驗室 (NTHU Inst. NEMS & Dept. PME)</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glass-panel">
+            <div class="icon-circle icon-purple">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Micro/Nano Printing Paradigms</h3>
+            <p>
+              Micro and nano additive printing processes replace high-waste photolithographic workflows. 
+              By leveraging drop-on-demand inkjet and roll-to-roll compatible fabrication, we achieve 
+              environmentally sustainable, high-precision electronic patterning on polymer, elastomer, and paper substrates.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="icon-circle icon-cyan">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Multidisciplinary Synergies</h3>
+            <p>
+              Our active researchers span mechanical engineering, electronics, nanomaterials, chemistry, and physics. 
+              Together, we investigate physical sensor modeling, nanoparticle ink rheology, rapid photonic sintering, 
+              and edge embedded readout electronics.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="icon-circle icon-amber">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3>From Science to Translation</h3>
+            <p>
+              Collaborating across NTHU shared cleanrooms and industry leaders (Walsin, CSME, Delta Electronics), 
+              our sensors power wearable health monitors, robotic tactile skins, and smart prosthetics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Pillars Section -->
+    <section class="section research-section" id="research">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Competencies</span>
+          <h2 class="section-title">Three Strategic Research Pillars</h2>
+          <p class="section-subtitle">Bridging materials science, precision processing, and integrated cyber-physical hardware.</p>
+        </div>
+
+        <div class="tabs-control" role="tablist">
+          <button class="tab-btn active" data-tab="device" role="tab">Pillar 1: Device Development (元件開發)</button>
+          <button class="tab-btn" data-tab="process" role="tab">Pillar 2: Process Optimization (製程優化)</button>
+          <button class="tab-btn" data-tab="system" role="tab">Pillar 3: System Integration (系統整合)</button>
+        </div>
+
+        <!-- Pillar 1 Content -->
+        <div class="tab-pane active" id="tab-device">
+          <div class="pillar-showcase glass-panel">
+            <div class="pillar-details">
+              <span class="badge badge-purple">Transducer Innovation</span>
+              <h3>Capacitive Tactile & Metamaterial Devices</h3>
+              <p>
+                Developing ultra-compliant tactile sensors with engineered structural rigidity. 
+                By tailoring asymmetric electrode topologies and porous microstructures, we achieve 
+                up to six-fold sensitivity magnification and decoupled multi-axis normal/shear force detection.
+              </p>
+              <ul class="feature-bullets">
+                <li><strong>Capacitive Tactile Sensors:</strong> Asymmetric electrode architectures and reduced rigidity matrices (Sensors & Actuators A).</li>
+                <li><strong>Metamaterials & FSS:</strong> Inkjet-patterned porous split-ring resonators and stress-tunable frequency-selective surfaces (APL).</li>
+                <li><strong>Optical & Display Filters:</strong> MEMS-based surface plasmon resonance color filtering and OLED subpixel illumination uniformity.</li>
+              </ul>
+              <div class="pillar-tags">
+                <span class="tag">Capacitive Tactile</span>
+                <span class="tag">Split-Ring Resonators</span>
+                <span class="tag">MEMS Plasmonics</span>
+                <span class="tag">FDC1004 Readout</span>
+              </div>
+            </div>
+            <div class="pillar-media">
+              <img src="assets/YWChen-clock.jpg" alt="Device Development Showcase" class="pillar-img" onerror="this.src='assets/Pancham-porosity.jpg'">
+              <div class="media-caption">Clock-type tactile array and flexible capacitive sensor prototype.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2 Content -->
+        <div class="tab-pane" id="tab-process">
+          <div class="pillar-showcase glass-panel">
+            <div class="pillar-details">
+              <span class="badge badge-cyan">Advanced Manufacturing</span>
+              <h3>Sintering Kinetics & Ink Rheology</h3>
+              <p>
+                Substrate thermal budgets restrict post-processing temperatures. 
+                We engineer photonic sintering methods (Near-Infrared NIR and Intense Pulsed Light IPL) 
+                to densify conductive nanoparticles within milliseconds without degrading underlying flexible polymers.
+              </p>
+              <ul class="feature-bullets">
+                <li><strong>Photonic Sintering:</strong> Roll-to-roll compatible NIR & IPL rapid curing of copper/silver nanoparticle inks (Micro & Nano Letters).</li>
+                <li><strong>Porosity Engineering:</strong> Janus porous electrospun nanofibrous architectures and progressive thermal curing dynamics.</li>
+                <li><strong>Deposition Fidelity:</strong> 2D droplet spreading models and irregular edge completeness quantification (JMM).</li>
+              </ul>
+              <div class="pillar-tags">
+                <span class="tag">NIR Sintering</span>
+                <span class="tag">IPL Curing</span>
+                <span class="tag">Dimatix DMP2831</span>
+                <span class="tag">Rheology Control</span>
+              </div>
+            </div>
+            <div class="pillar-media">
+              <img src="assets/LW-NIR.jpg" alt="Process Optimization Showcase" class="pillar-img" onerror="this.src='assets/Pancham-porosity.jpg'">
+              <div class="media-caption">Roll-to-roll compatible Near-Infrared (NIR) sintering of metal meshes.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3 Content -->
+        <div class="tab-pane" id="tab-system">
+          <div class="pillar-showcase glass-panel">
+            <div class="pillar-details">
+              <span class="badge badge-amber">Edge Electronics</span>
+              <h3>Wearable Sensor Arrays & Wireless telemetry</h3>
+              <p>
+                Transforming discrete transducers into robust, field-deployable cyber-physical nodes. 
+                We fabricate vertically stacked sensor matrices, low-noise front-end conditioning circuits, 
+                and low-power BLE/ESP32 sensor modules for real-time robotic feedback.
+              </p>
+              <ul class="feature-bullets">
+                <li><strong>Vertically Stacked Matrices:</strong> Quadrupled spatial resolution enhancement over conventional planar layouts.</li>
+                <li><strong>Low-Noise Front-End:</strong> Active shielding and stray-capacitance cancellation utilizing 24-bit delta-sigma converters.</li>
+                <li><strong>Robotic Gripper Telemetry:</strong> High-bandwidth tactile feedback for slip detection and delicate object grasping.</li>
+              </ul>
+              <div class="pillar-tags">
+                <span class="tag">Vertically Stacked</span>
+                <span class="tag">BLE Telemetry</span>
+                <span class="tag">Slip Detection</span>
+                <span class="tag">Robotic Grippers</span>
+              </div>
+            </div>
+            <div class="pillar-media">
+              <img src="assets/Pancham-porosity.jpg" alt="System Integration Showcase" class="pillar-img" onerror="this.src='assets/TYHsu.jpg'">
+              <div class="media-caption">Porous microstructure matrix integration for high-density wearable tactile sensing.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lab Members Section -->
+    <section class="section members-section" id="members">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Team & Scholars</span>
+          <h2 class="section-title">Members & Researchers</h2>
+          <p class="section-subtitle">Dedicated researchers from mechanical, electrical, and chemical disciplines.</p>
+        </div>
+
+        <!-- Principal Investigator Profile -->
+        <div class="pi-card glass-panel">
+          <div class="pi-photo-box">
+            <div class="pi-avatar">
+              <span>PI</span>
+            </div>
+            <div class="pi-badge">Principal Investigator</div>
+          </div>
+          <div class="pi-info">
+            <div class="pi-header">
+              <div>
+                <h3 class="pi-name">Prof. Cheng-Yao Lo (羅承堯 教授)</h3>
+                <div class="pi-title">Associate Professor, Institute of NEMS & Department of PME, NTHU</div>
+              </div>
+              <div class="pi-contact-quick">
+                <span class="contact-pill">
+                  <svg class="icon-inline" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                  <!-- Obfuscated email per Phase 1 spec -->
+                  <a href="mailto:chengyao@mx.nthu.edu.tw" class="obfuscated-email" id="piEmail">chengyao&#64;mx.nthu.edu.tw</a>
+                </span>
+                <span class="contact-pill">
+                  <svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                  Delta Building Rm 313
+                </span>
+              </div>
+            </div>
+            <p class="pi-bio">
+              Prof. Lo directs the Flexible Printronics Laboratory at NTHU. His research focuses on additive micro-droplet fabrication, 
+              flexible strain/tactile sensor designs, photonic sintering kinetics, and wearable human-machine interfaces.
+            </p>
+            <div class="pi-links">
+              <span class="tag">Office: +886 3 5162404</span>
+              <span class="tag">Lab: +886 3 5715131 #80128</span>
+              <span class="tag">Fax: +886 3 5745454</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-bar">
+          <div class="filter-buttons">
+            <button class="btn-filter active" data-filter="all">All Members</button>
+            <button class="btn-filter" data-filter="phd">Ph.D. Scholars</button>
+            <button class="btn-filter" data-filter="master">Master Candidates</button>
+            <button class="btn-filter" data-filter="alumni">Alumni</button>
+          </div>
+          <div class="member-search-box">
+            <input type="text" id="memberSearch" placeholder="Search by name, research topic, or year..." class="form-input">
+          </div>
+        </div>
+
+        <!-- Members Grid -->
+        <div class="members-grid" id="membersGrid">
+          <!-- Ph.D. Member 1 -->
+          <div class="member-card glass-panel" data-role="phd">
+            <div class="member-badge badge-purple">Ph.D. Candidate</div>
+            <h4 class="member-name">Pancham (帕滿納)</h4>
+            <div class="member-focus">Janus Porous Tactile Sensing & Nanoparticle Sintering</div>
+            <p class="member-desc">2nd Prize in 2023 Walsin Poster Competition. Recipient of NTHU Outstanding TA Award.</p>
+            <div class="member-year">2021 &ndash; Present</div>
+          </div>
+
+          <!-- Master Member 1 -->
+          <div class="member-card glass-panel" data-role="master">
+            <div class="member-badge badge-cyan">Master Candidate</div>
+            <h4 class="member-name">Yu-Wen Chen (陳裕文)</h4>
+            <div class="member-focus">Capacitive Tactile Arrays & Clock-Type Sensors</div>
+            <p class="member-desc">Honorary Member of Phi Tau Phi Scholastic Honor Society (2025). 1st Place in CSME 2024 Group E02.</p>
+            <div class="member-year">2023 &ndash; 2025</div>
+          </div>
+
+          <!-- Master Member 2 -->
+          <div class="member-card glass-panel" data-role="master">
+            <div class="member-badge badge-cyan">Master Candidate</div>
+            <h4 class="member-name">Cheng-Chieh Wang (王顗城)</h4>
+            <div class="member-focus">Inkjet Printed Sensor Integration & Readout</div>
+            <p class="member-desc">Co-author & 1st Place CSME 2024 Award. NSTC Automation Engineering Project.</p>
+            <div class="member-year">2023 &ndash; Present</div>
+          </div>
+
+          <!-- Master Member 3 -->
+          <div class="member-card glass-panel" data-role="master">
+            <div class="member-badge badge-cyan">Master Candidate</div>
+            <h4 class="member-name">Chen-Hao Hung (洪晨晧)</h4>
+            <div class="member-focus">Sintering Dynamics & Conductive Trace Reliability</div>
+            <p class="member-desc">1st Place in CSME 2024 Group E02. High-speed photonic sintering kinetics.</p>
+            <div class="member-year">2023 &ndash; Present</div>
+          </div>
+
+          <!-- Alumni 1 -->
+          <div class="member-card glass-panel" data-role="alumni">
+            <div class="member-badge badge-gray">Alumnus (Ph.D. 2016)</div>
+            <h4 class="member-name">Dr. Sheng-Feng Lin (林聖峰)</h4>
+            <div class="member-focus">NIR Non-destructive Optical Inspection</div>
+            <p class="member-desc">Applied Optics publication on micro-crack wafer inspection through dicing tape.</p>
+            <div class="member-year">Ph.D. 2016</div>
+          </div>
+
+          <!-- Alumni 2 -->
+          <div class="member-card glass-panel" data-role="alumni">
+            <div class="member-badge badge-gray">Alumnus (M.S. 2019)</div>
+            <h4 class="member-name">Ting-Yi Hsu (許庭譯)</h4>
+            <div class="member-focus">Structural Rigidity & Capacitive Tactile Sensitivity</div>
+            <p class="member-desc">Published 5-fold sensitivity enhancement in Sensors and Actuators A: Physical (2019). MNC 2018 Best Poster.</p>
+            <div class="member-year">M.S. 2019</div>
+          </div>
+
+          <!-- Alumni 3 -->
+          <div class="member-card glass-panel" data-role="alumni">
+            <div class="member-badge badge-gray">Alumnus (M.S. 2017)</div>
+            <h4 class="member-name">Li-Wen Wang (王俐雯)</h4>
+            <div class="member-focus">Roll-to-Roll NIR Sintering for Metal Mesh</div>
+            <p class="member-desc">Published in Micro & Nano Letters (2017). IEEE NEMS 2017 Best Conference Paper Award.</p>
+            <div class="member-year">M.S. 2017</div>
+          </div>
+
+          <!-- Alumni 4 -->
+          <div class="member-card glass-panel" data-role="alumni">
+            <div class="member-badge badge-gray">Alumnus (M.S. 2016)</div>
+            <h4 class="member-name">Mochtar Chandra (劉建豪)</h4>
+            <div class="member-focus">Vertically Stacked Tactile Sensor Matrices</div>
+            <p class="member-desc">Quadrupled spatial resolution enhancement in Sensors & Actuators A: Physical (2017).</p>
+            <div class="member-year">M.S. 2016</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document Center & Publications Section -->
+    <section class="section pub-section" id="publications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Scholarly Output</span>
+          <h2 class="section-title">Document Center & Publications</h2>
+          <p class="section-subtitle">Peer-reviewed journal papers, conference proceedings, patents, and defended theses.</p>
+        </div>
+
+        <div class="pub-toolbar">
+          <div class="pub-filters">
+            <button class="pub-filter active" data-pub="all">All Documents</button>
+            <button class="pub-filter" data-pub="journal">Journals</button>
+            <button class="pub-filter" data-pub="conf">Conferences</button>
+            <button class="pub-filter" data-pub="thesis">Theses</button>
+          </div>
+          <div class="pub-search">
+            <input type="text" id="pubSearch" placeholder="Filter by title, author, journal, or DOI..." class="form-input">
+          </div>
+        </div>
+
+        <div class="pub-list" id="pubList">
+          <!-- Pub 1 -->
+          <article class="pub-card glass-panel" data-category="journal">
+            <div class="pub-type-badge badge-purple">Journal Article</div>
+            <h4 class="pub-title">Five-fold sensitivity enhancement in a capacitive tactile sensor by reducing material and structural rigidity</h4>
+            <div class="pub-authors">T.Y. Hsu, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">Sensors and Actuators A: Physical</span>, Vol. 293, pp. 167-177 (2019)
+              <span class="pub-doi">&bull; DOI: 10.1016/j.sna.2019.04.043</span>
+            </div>
+          </article>
+
+          <!-- Pub 2 -->
+          <article class="pub-card glass-panel" data-category="journal">
+            <div class="pub-type-badge badge-purple">Journal Article</div>
+            <h4 class="pub-title">Morphology and Conductivity Improvement of Metal Mesh Through Roll-to-Roll-Compatible Near-Infrared Sintering</h4>
+            <div class="pub-authors">L.W. Wang, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">Micro & Nano Letters</span>, Vol. 12, Issue 11, pp. 886-890 (2017)
+              <span class="pub-doi">&bull; DOI: 10.1049/mnl.2017.0418</span>
+            </div>
+          </article>
+
+          <!-- Pub 3 -->
+          <article class="pub-card glass-panel" data-category="journal">
+            <div class="pub-type-badge badge-purple">Journal Article</div>
+            <h4 class="pub-title">Vertically Stacked Capacitive Tactile Sensor with More Than Quadrupled Spatial Resolution Enhancement from Planar Arrangement</h4>
+            <div class="pub-authors">M. Chandra, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">Sensors and Actuators A: Physical</span>, Vol. 263, pp. 386-390 (2017)
+              <span class="pub-doi">&bull; DOI: 10.1016/j.sna.2017.07.004</span>
+            </div>
+          </article>
+
+          <!-- Pub 4 -->
+          <article class="pub-card glass-panel" data-category="journal">
+            <div class="pub-type-badge badge-purple">Journal Article</div>
+            <h4 class="pub-title">Inkjet-Patterned Porous Split-Ring Resonator and Its Performance Study on Metamaterial Application</h4>
+            <div class="pub-authors">B.C. Huang, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">Journal of Micromechanics and Microengineering</span>, Vol. 28, 095012 (2018)
+              <span class="pub-doi">&bull; DOI: 10.1088/1361-6439/aac669</span>
+            </div>
+          </article>
+
+          <!-- Pub 5 -->
+          <article class="pub-card glass-panel" data-category="conf">
+            <div class="pub-type-badge badge-cyan">Conference Paper</div>
+            <h4 class="pub-title">Morphology and Conductivity Enhancement of Metal Mesh in OLEDs by Near Infrared and Intense Pulse Light</h4>
+            <div class="pub-authors">L.W. Wang, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">IEEE NEMS 2017</span> &bull; <strong>Best Conference Paper Award</strong>
+            </div>
+          </article>
+
+          <!-- Pub 6 -->
+          <article class="pub-card glass-panel" data-category="conf">
+            <div class="pub-type-badge badge-cyan">Conference Paper</div>
+            <h4 class="pub-title">Advanced Capacitive Tactile Sensor for Up-to-Sixfold Sensitivity Enhancement by Reduced Structural Rigidity</h4>
+            <div class="pub-authors">T.Y. Hsu, C.Y. Lo*</div>
+            <div class="pub-meta">
+              <span class="pub-journal">MNC 2018</span> &bull; <strong>Best Poster Award</strong>
+            </div>
+          </article>
+
+          <!-- Pub 7 -->
+          <article class="pub-card glass-panel" data-category="thesis">
+            <div class="pub-type-badge badge-amber">Defended Thesis</div>
+            <h4 class="pub-title">Sensitivity Study on Capacitive Tactile Sensors with Various Structural Rigidities (結構剛性於電容式觸覺感測器靈敏度之研究)</h4>
+            <div class="pub-authors">Ting-Yi Hsu (許庭譯), Advised by Prof. Cheng-Yao Lo</div>
+            <div class="pub-meta">
+              <span class="pub-journal">National Tsing Hua University Master's Thesis</span> (2018)
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="section facilities-section" id="facilities">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Infrastructure</span>
+          <h2 class="section-title">Facilities & Core Equipment</h2>
+          <p class="section-subtitle">Dedicated research tools and shared instrumentation across NTHU cleanrooms.</p>
+        </div>
+
+        <div class="facilities-grid">
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">🖨️</div>
+            <h4>Dimatix DMP-2831</h4>
+            <div class="fac-cat">Materials Inkjet Printer</div>
+            <p>Cartridge-based drop-on-demand piezo system for micro-droplet fluid deposition and conductive ink patterning.</p>
+          </div>
+
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">⚡</div>
+            <h4>NIR Sintering System</h4>
+            <div class="fac-cat">Photonic Processing</div>
+            <p>Roll-to-roll compatible high-power near-infrared source for rapid conductive particle sintering without heat degradation.</p>
+          </div>
+
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">💡</div>
+            <h4>Intense Pulsed Light (IPL)</h4>
+            <div class="fac-cat">Flash Photonic Annealing</div>
+            <p>Microsecond xenon flash pulses delivering ultra-high energy densities for copper and silver nanomaterial densification.</p>
+          </div>
+
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">🌀</div>
+            <h4>Precision Spin Coater</h4>
+            <div class="fac-cat">Substrate & Dielectric Prep</div>
+            <p>Sub-micron dielectric film coating with programmable multi-step acceleration profiles for elastomer membranes.</p>
+          </div>
+
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">📊</div>
+            <h4>Precision LCR & Impedance Analyzer</h4>
+            <div class="fac-cat">Electrical Characterization</div>
+            <p>Sub-femtofarad capacitance extraction and frequency response profiling from 20 Hz to 2 MHz.</p>
+          </div>
+
+          <div class="facility-card glass-panel">
+            <div class="fac-icon">🔬</div>
+            <h4>Optical Profiler & Micro-Mechanical Stage</h4>
+            <div class="fac-cat">Surface Metrology</div>
+            <p>Multi-axis automated micro-force loading stage with 0.1 mN resolution for tactile sensor calibration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Honors Section (Chronological Descending per Phase 1 Plan) -->
+    <section class="section news-section" id="news">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Milestones & Honors</span>
+          <h2 class="section-title">Latest Lab News</h2>
+          <p class="section-subtitle">Ordered in strict descending chronological sequence (Phase 1 standard).</p>
+        </div>
+
+        <div class="timeline">
+          <!-- News 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-date">May 23, 2025</div>
+              <span class="badge badge-accent">Academic Honor</span>
+              <h4>Y.W. Chen Selected as Honorary Member of Phi Tau Phi</h4>
+              <p>Yu-Wen Chen (陳裕文) was inducted into the prestigious Phi Tau Phi Scholastic Honor Society of the Republic of China for academic distinction.</p>
+            </div>
+          </div>
+
+          <!-- News 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-date">April 27, 2025</div>
+              <span class="badge badge-purple">Reunion</span>
+              <h4>Alumni Reunion during NTHU 114th Anniversary</h4>
+              <p>Printronics Lab alumni returned to campus celebrating NTHU's 114th Anniversary and NEMS 23rd Anniversary in Delta Building.</p>
+            </div>
+          </div>
+
+          <!-- News 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-date">November 16, 2024</div>
+              <span class="badge badge-accent">Competition Award</span>
+              <h4>1st Place Award in CSME 2024 Annual Conference</h4>
+              <p>C.C. Wang, C.H. Hung, and Y.W. Chen received 1st Place in Group E02 at the 2024 Chinese Society of Mechanical Engineers Conference.</p>
+            </div>
+          </div>
+
+          <!-- News 4 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-panel">
+              <div class="timeline-date">2023</div>
+              <span class="badge badge-cyan">Honors</span>
+              <h4>P. Pancham Wins 2nd Prize in Walsin Competition & Outstanding TA</h4>
+              <p>P. Pancham received the 2nd Prize in the 2023 Walsin Poster Competition and was conferred the NTHU Outstanding Teaching Assistant Award.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRANET ARCHITECTURE PROTOTYPE (PHASE 3 & 3.1 SPECIFICATION) -->
+    <section class="section intranet-section" id="intranet">
+      <div class="container">
+        <div class="intranet-header glass-panel">
+          <div class="intranet-title-box">
+            <div class="badge badge-accent">Phase 3 & 3.1 Architecture Demonstration</div>
+            <h2>Authenticated Lab Intranet & Inventory Matrix</h2>
+            <p>
+              Interactive proof-of-concept demonstrating the relational database schema specified in 
+              <code>Website_Upgrade_Plan_v2.md</code> for internal lab operations, chemical tracking, hardware allocations, and SOP compliance.
+            </p>
+          </div>
+          <div class="intranet-status">
+            <span class="status-indicator online"></span>
+            <span>Local Offline Simulation Active</span>
+          </div>
+        </div>
+
+        <!-- Intranet Tabs -->
+        <div class="intra-tabs">
+          <button class="intra-tab active" data-intra="precursor">
+            <span class="tab-icon">🧪</span>
+            1. Precursor & Ink Repository (<code>precursor_sys</code>)
+          </button>
+          <button class="intra-tab" data-intra="mcu">
+            <span class="tab-icon">💻</span>
+            2. Embedded Hardware Matrix (<code>mcu_inventory</code>)
+          </button>
+          <button class="intra-tab" data-intra="substrate">
+            <span class="tab-icon">📑</span>
+            3. Substrate & Nanofiber Stock (<code>substrate_stock</code>)
+          </button>
+          <button class="intra-tab" data-intra="maintenance">
+            <span class="tab-icon">🛠️</span>
+            4. Calibration Ledger & SOPs (<code>hardware_maintenance</code>)
+          </button>
+        </div>
+
+        <!-- Database View 1: Precursor & Ink Repository -->
+        <div class="intra-view active" id="view-precursor">
+          <div class="table-container glass-panel">
+            <div class="table-actions">
+              <div class="table-title">Table: <code>precursor_sys</code> &bull; Chemical Entities & Inkjet Printability Metrics</div>
+              <input type="text" id="filterPrecursor" placeholder="Search CAS, ink type, or temperature..." class="form-input form-input-sm">
+            </div>
+            <table class="data-table" id="tablePrecursor">
+              <thead>
+                <tr>
+                  <th>CAS Number (PK)</th>
+                  <th>Chemical / Ink Material</th>
+                  <th>Viscosity (cP)</th>
+                  <th>Surface Tension (mN/m)</th>
+                  <th>Curing Temp (°C)</th>
+                  <th>Storage Temp (°C)</th>
+                  <th>Status / Shelf Life</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>7440-22-4-AG</code></td>
+                  <td>Silver Nanoparticle Ink (Novacentrix)</td>
+                  <td>11.4</td>
+                  <td>32.0</td>
+                  <td>140</td>
+                  <td>4°C</td>
+                  <td><span class="status-pill status-good">Active (84% Volume)</span></td>
+                </tr>
+                <tr>
+                  <td><code>7440-50-8-CU</code></td>
+                  <td>Copper Formate Precursor Ink</td>
+                  <td>9.8</td>
+                  <td>28.5</td>
+                  <td>180</td>
+                  <td>-20°C</td>
+                  <td><span class="status-pill status-warn">Expires in 18 Days</span></td>
+                </tr>
+                <tr>
+                  <td><code>9002-89-5-PVA</code></td>
+                  <td>Poly(vinyl alcohol) 88% Hydrolyzed</td>
+                  <td>42.0</td>
+                  <td>45.2</td>
+                  <td>110</td>
+                  <td>25°C</td>
+                  <td><span class="status-pill status-good">In Stock</span></td>
+                </tr>
+                <tr>
+                  <td><code>7782-42-5-GR</code></td>
+                  <td>Graphene Oxide Dispersion (Water)</td>
+                  <td>15.2</td>
+                  <td>48.0</td>
+                  <td>160</td>
+                  <td>4°C</td>
+                  <td><span class="status-pill status-good">Active (92% Volume)</span></td>
+                </tr>
+                <tr>
+                  <td><code>63148-62-9-PDMS</code></td>
+                  <td>Sylgard 184 Silicone Elastomer Base</td>
+                  <td>3500.0</td>
+                  <td>21.5</td>
+                  <td>80</td>
+                  <td>25°C</td>
+                  <td><span class="status-pill status-good">Ample Stock</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Database View 2: Embedded Hardware Matrix -->
+        <div class="intra-view" id="view-mcu">
+          <div class="table-container glass-panel">
+            <div class="table-actions">
+              <div class="table-title">Table: <code>mcu_inventory</code> &bull; Network Nodes, Bus Logic, & Allocation</div>
+              <input type="text" id="filterMcu" placeholder="Filter MAC, allocation, or logic level..." class="form-input form-input-sm">
+            </div>
+            <table class="data-table" id="tableMcu">
+              <thead>
+                <tr>
+                  <th>MAC Address (PK)</th>
+                  <th>Controller / Node Type</th>
+                  <th>Logic Level (V)</th>
+                  <th>ADC Resolution</th>
+                  <th>Current Draw (mA)</th>
+                  <th>Allocation / Project ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>C4:DE:E2:81:4A:10</code></td>
+                  <td>ESP32-S3-WROOM-1 (Dual-Core)</td>
+                  <td>3.3V</td>
+                  <td>12-bit SAR</td>
+                  <td>82.4</td>
+                  <td><span class="badge badge-purple">PROJ-TACTILE-01 (Pancham)</span></td>
+                </tr>
+                <tr>
+                  <td><code>E0:5A:1B:67:92:04</code></td>
+                  <td>nRF52840 BLE 5.2 Dongle</td>
+                  <td>3.3V</td>
+                  <td>14-bit SAADC</td>
+                  <td>14.8</td>
+                  <td><span class="badge badge-cyan">PROJ-WEARABLE-02 (Y.W. Chen)</span></td>
+                </tr>
+                <tr>
+                  <td><code>F8:9A:8B:11:34:55</code></td>
+                  <td>TI FDC1004 4-Ch Capacitance Eval</td>
+                  <td>3.3V (I2C)</td>
+                  <td>24-bit Delta-Sigma</td>
+                  <td>3.2</td>
+                  <td><span class="badge badge-purple">PROJ-CAPACITIVE-LAB</span></td>
+                </tr>
+                <tr>
+                  <td><code>30:AE:A4:99:C1:22</code></td>
+                  <td>SAMD21 Cortex-M0+ Mini</td>
+                  <td>3.3V</td>
+                  <td>12-bit</td>
+                  <td>18.5</td>
+                  <td><span class="badge badge-gray">General Inventory (Delta 313)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Database View 3: Substrate & Nanofibrous Matrix -->
+        <div class="intra-view" id="view-substrate">
+          <div class="table-container glass-panel">
+            <div class="table-actions">
+              <div class="table-title">Table: <code>substrate_stock</code> &bull; Deposition Z-Offsets & Thermal Budgets</div>
+              <input type="text" id="filterSubstrate" placeholder="Search batch, material, or porosity..." class="form-input form-input-sm">
+            </div>
+            <table class="data-table" id="tableSubstrate">
+              <thead>
+                <tr>
+                  <th>Batch ID (PK)</th>
+                  <th>Substrate Material</th>
+                  <th>Thickness (&mu;m)</th>
+                  <th>Porosity (%)</th>
+                  <th>Glass Transition Tg (°C)</th>
+                  <th>Storage Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>BATCH-PI-2025-04</code></td>
+                  <td>Kapton Polyimide Film (50 HN)</td>
+                  <td>125.0</td>
+                  <td>0.0%</td>
+                  <td>385°C</td>
+                  <td>Dry Box Cabinet A-2</td>
+                </tr>
+                <tr>
+                  <td><code>BATCH-JANUS-019</code></td>
+                  <td>Electrospun PVDF-HFP/PVA Mat</td>
+                  <td>85.4</td>
+                  <td>68.5%</td>
+                  <td>115°C</td>
+                  <td>Cleanroom Desiccator 3</td>
+                </tr>
+                <tr>
+                  <td><code>BATCH-PET-OPT-08</code></td>
+                  <td>Optical Grade Toray PET Film</td>
+                  <td>100.0</td>
+                  <td>0.0%</td>
+                  <td>78°C</td>
+                  <td>Dry Box Cabinet B-1</td>
+                </tr>
+                <tr>
+                  <td><code>BATCH-PDMS-10-1</code></td>
+                  <td>PDMS Micro-structured Mold 10:1</td>
+                  <td>250.0</td>
+                  <td>32.0%</td>
+                  <td>-125°C</td>
+                  <td>Room 313 Prep Station</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Database View 4: Hardware Maintenance & SOP Ledger -->
+        <div class="intra-view" id="view-maintenance">
+          <div class="table-container glass-panel">
+            <div class="table-actions">
+              <div class="table-title">Table: <code>hardware_maintenance</code> &bull; Calibration Schedules & Certified Operators</div>
+              <input type="text" id="filterMaintenance" placeholder="Filter equipment or operator..." class="form-input form-input-sm">
+            </div>
+            <table class="data-table" id="tableMaintenance">
+              <thead>
+                <tr>
+                  <th>Equipment ID (PK)</th>
+                  <th>Instrument Name</th>
+                  <th>Last Calibrated</th>
+                  <th>Operating Hours</th>
+                  <th>Authorized Operator ID</th>
+                  <th>SOP Training Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>EQ-DMP2831-01</code></td>
+                  <td>Dimatix DMP2831 Inkjet Printer</td>
+                  <td>2025-08-15</td>
+                  <td>1,420 hrs</td>
+                  <td><code>USER-OP-PANCHAM</code></td>
+                  <td><span class="status-pill status-good">SOP Certified &bull; Passed</span></td>
+                </tr>
+                <tr>
+                  <td><code>EQ-NIR-SINT-02</code></td>
+                  <td>High-Power NIR Sintering Source</td>
+                  <td>2025-07-20</td>
+                  <td>640 hrs</td>
+                  <td><code>USER-OP-HUNG</code></td>
+                  <td><span class="status-pill status-good">SOP Certified &bull; Passed</span></td>
+                </tr>
+                <tr>
+                  <td><code>EQ-LCR-E4980A</code></td>
+                  <td>Keysight Precision LCR Meter</td>
+                  <td>2025-09-01</td>
+                  <td>2,890 hrs</td>
+                  <td><code>USER-OP-CHEN</code></td>
+                  <td><span class="status-pill status-good">Calibrated &bull; Valid</span></td>
+                </tr>
+                <tr>
+                  <td><code>EQ-SPIN-01</code></td>
+                  <td>Laurell Precision Spin Coater</td>
+                  <td>2025-04-10</td>
+                  <td>850 hrs</td>
+                  <td><code>USER-OP-ALL</code></td>
+                  <td><span class="status-pill status-warn">Calibration Due in 30 Days</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Contact & Directions</h2>
+          <p class="section-subtitle">Flexible Printronics Laboratory at National Tsing Hua University</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card glass-panel">
+            <h3>Laboratory Coordinates</h3>
+            <p>We welcome academic collaborations, industrial partnerships, and prospective graduate researchers.</p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="c-icon">📍</div>
+                <div>
+                  <strong>Address</strong>
+                  <p>Room 313, Delta Building (台達館313室)<br>No. 101, Section 2, Kuang-Fu Road, Hsinchu 30013, Taiwan</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="c-icon">✉️</div>
+                <div>
+                  <strong>Electronic Mail (Obfuscated)</strong>
+                  <!-- Obfuscated email per Phase 1 spec -->
+                  <p><a href="mailto:chengyao@mx.nthu.edu.tw" class="obfuscated-email">chengyao&#64;mx.nthu.edu.tw</a></p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="c-icon">📞</div>
+                <div>
+                  <strong>Telephone & Fax</strong>
+                  <p>PI Office: +886 3 5162404<br>Student Lab: +886 3 5715131 ext. 80128<br>Fax: +886 3 5745454</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-card glass-panel">
+            <div class="map-mockup">
+              <div class="map-inner">
+                <div class="map-pin">
+                  <div class="pin-marker"></div>
+                  <div class="pin-label">NTHU Delta Building Rm 313</div>
+                </div>
+                <div class="map-grid-lines"></div>
+              </div>
+            </div>
+            <div class="map-caption">
+              <strong>National Tsing Hua University (國立清華大學)</strong><br>
+              Institute of NanoEngineering and MicroSystems (奈米工程與微系統研究所)<br>
+              Department of Power Mechanical Engineering (動力機械工程學系)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="assets/foot_logo.png" alt="Printronics Lab Footer Logo" class="footer-logo" onerror="this.src='assets/lab_logo.png'">
+        <div class="footer-desc">
+          Flexible Printronics Lab &bull; National Tsing Hua University.<br>
+          Next-generation additive printing, micro/nano sensors, and cyber-physical systems.
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#research">Research Pillars</a></li>
+          <li><a href="#members">Team & PI</a></li>
+          <li><a href="#publications">Document Center</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Affiliations</h4>
+        <ul>
+          <li><a href="https://www.nthu.edu.tw" target="_blank" rel="noopener">National Tsing Hua University</a></li>
+          <li><a href="http://www.nems.nthu.edu.tw" target="_blank" rel="noopener">Institute of NEMS</a></li>
+          <li><a href="http://www.pme.nthu.edu.tw" target="_blank" rel="noopener">Department of PME</a></li>
+          <li><a href="#intranet">Lab Intranet Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; Flexible Printronics Lab, NTHU. All rights reserved. 謝絕推銷.</div>
+        <div class="footer-badge">100% Offline Demonstrator &bull; Phase 1&ndash;3 Implemented</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
