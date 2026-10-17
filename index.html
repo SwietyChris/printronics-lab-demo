@@ -21,10 +21,10 @@
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7zm3 7a2 2 0 0 1 1 1.73l.42 2.55a.5.5 0 0 1-.5.72h-1.84a.5.5 0 0 1-.5-.72l.42-2.55A2 2 0 0 1 12 14z"/></svg>
           Lab Intranet (Phase 3 Demo)
         </a>
-                <button id="openAdminModal" class="btn-admin-pill" aria-label="Open Admin Dashboard">
-          <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-          PI Visual Editor
-        </button>
+                <a href="#intranet" id="navIntranetPill" class="btn-admin-pill" aria-label="Open Lab Intranet and PI Editor">
+          <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7zm3 7a2 2 0 0 1 1 1.73l.42 2.55a.5.5 0 0 1-.5.72h-1.84a.5.5 0 0 1-.5-.72l.42-2.55A2 2 0 0 1 12 14z"/></svg>
+          🔒 Lab Intranet & Editor
+        </a>
         <button id="themeToggle" class="btn-icon" aria-label="Toggle Theme">
           <svg id="themeIcon" class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </button>
@@ -53,7 +53,7 @@
           <li><a href="#facilities" class="nav-link">Facilities</a></li>
           <li><a href="#news" class="nav-link">News</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
-          <li><a href="#intranet" class="btn btn-outline-purple">Intranet Portal</a></li>
+          <li><a href="#intranet" class="btn btn-outline-purple">🔒 Intranet Portal</a></li>
         </ul>
       </nav>
 
@@ -648,42 +648,270 @@
     </section>
 
     <!-- INTRANET ARCHITECTURE PROTOTYPE (PHASE 3 & 3.1 SPECIFICATION) -->
+    <!-- INTRANET ARCHITECTURE PROTOTYPE (PHASE 3 & 3.1 SPECIFICATION) -->
     <section class="section intranet-section" id="intranet">
       <div class="container">
-        <div class="intranet-header glass-panel">
-          <div class="intranet-title-box">
-            <div class="badge badge-accent">Phase 3 & 3.1 Architecture Demonstration</div>
-            <h2>Authenticated Lab Intranet & Inventory Matrix</h2>
-            <p>
-              Interactive proof-of-concept demonstrating the relational database schema specified in 
-              <code>Website_Upgrade_Plan_v2.md</code> for internal lab operations, chemical tracking, hardware allocations, and SOP compliance.
-            </p>
+
+        <!-- 1. AUTHENTICATION GATE (Visible when logged out) -->
+        <div id="intranetAuthGate" class="auth-gate-card glass-panel">
+          <div class="auth-gate-header">
+            <div class="auth-badge">
+              <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7zm3 7a2 2 0 0 1 1 1.73l.42 2.55a.5.5 0 0 1-.5.72h-1.84a.5.5 0 0 1-.5-.72l.42-2.55A2 2 0 0 1 12 14z"/></svg>
+              Restricted Lab Intranet &amp; PI Portal
+            </div>
+            <h2>Printronics Lab Internal Gateway</h2>
+            <p class="auth-gate-sub">Access requires authenticated lab credentials. This area contains lab equipment schedules, chemical inventories, SOPs, and the website visual editor.</p>
           </div>
-          <div class="intranet-status">
-            <span class="status-indicator online"></span>
-            <span>Local Offline Simulation Active</span>
+
+          <div class="demo-credentials-callout">
+            <span class="callout-icon">💡</span>
+            <div class="callout-body">
+              <strong>Presentation Demo Access:</strong> Use Username: <code class="auth-code">demo</code> &bull; Password: <code class="auth-code">demo</code>
+            </div>
           </div>
+
+          <form id="intranetLoginForm" class="auth-gate-form" onsubmit="return false;">
+            <div class="auth-form-group">
+              <label for="intraUser">Lab Username / University Email</label>
+              <input type="text" id="intraUser" value="demo" placeholder="e.g. chengyao or student@mx.nthu.edu.tw" required autocomplete="username" />
+            </div>
+            <div class="auth-form-group">
+              <label for="intraPass">Password / Access Token</label>
+              <input type="password" id="intraPass" value="demo" placeholder="Enter password" required autocomplete="current-password" />
+            </div>
+            <div id="intraError" class="auth-error-msg" style="display:none;">
+              ⚠️ Invalid username or password. Please use <strong>demo / demo</strong> for this test.
+            </div>
+            <button type="submit" id="btnIntranetLogin" class="btn btn-primary btn-block">
+              🔓 Sign In &amp; Open Lab Intranet
+            </button>
+          </form>
         </div>
 
-        <!-- Intranet Tabs -->
-        <div class="intra-tabs">
-          <button class="intra-tab active" data-intra="precursor">
-            <span class="tab-icon">🧪</span>
-            1. Precursor & Ink Repository (<code>precursor_sys</code>)
-          </button>
-          <button class="intra-tab" data-intra="mcu">
-            <span class="tab-icon">💻</span>
-            2. Embedded Hardware Matrix (<code>mcu_inventory</code>)
-          </button>
-          <button class="intra-tab" data-intra="substrate">
-            <span class="tab-icon">📑</span>
-            3. Substrate & Nanofiber Stock (<code>substrate_stock</code>)
-          </button>
-          <button class="intra-tab" data-intra="maintenance">
-            <span class="tab-icon">🛠️</span>
-            4. Calibration Ledger & SOPs (<code>hardware_maintenance</code>)
-          </button>
-        </div>
+        <!-- 2. AUTHENTICATED WORKSPACE (Visible when logged in) -->
+        <div id="intranetWorkspace" style="display:none;">
+          <div class="intranet-header glass-panel">
+            <div class="intranet-title-box">
+              <div class="auth-user-tag">
+                <span class="status-indicator online"></span>
+                <strong>Authenticated:</strong> Prof. Cheng-Yao Lo (PI &amp; Administrator) &bull; <span class="badge badge-accent">Role: Super Admin</span>
+              </div>
+              <h2>Printronics Lab Intranet &amp; Management Console</h2>
+              <p>Manage public website content, view internal inventories, allocate MCUs, track chemical precursors, and manage member credentials.</p>
+            </div>
+            <div class="intranet-actions">
+              <button id="btnIntranetSignOut" class="btn btn-outline btn-sm" style="border-color:rgba(239,68,68,0.5);color:#f87171;">🔒 Sign Out</button>
+            </div>
+          </div>
+
+          <!-- Intranet Tabs Navigation -->
+          <div class="intra-tabs">
+            <button class="intra-tab active" data-intra="editor">
+              <span class="tab-icon">✨</span>
+              1. PI Visual Website Editor
+            </button>
+            <button class="intra-tab" data-intra="access">
+              <span class="tab-icon">👥</span>
+              2. Access Control &amp; User Accounts
+            </button>
+            <button class="intra-tab" data-intra="precursor">
+              <span class="tab-icon">🧪</span>
+              3. Chemical &amp; Ink Stock (<code>precursor_sys</code>)
+            </button>
+            <button class="intra-tab" data-intra="mcu">
+              <span class="tab-icon">💻</span>
+              4. Embedded Hardware Matrix (<code>mcu_inventory</code>)
+            </button>
+            <button class="intra-tab" data-intra="substrate">
+              <span class="tab-icon">📑</span>
+              5. Substrates &amp; Nanofibers (<code>substrate_stock</code>)
+            </button>
+            <button class="intra-tab" data-intra="maintenance">
+              <span class="tab-icon">🛠️</span>
+              6. Calibration Ledger &amp; SOPs (<code>hardware_maintenance</code>)
+            </button>
+          </div>
+
+          <!-- View 1: PI Visual Website Editor -->
+          <div class="intra-view active" id="view-editor">
+            <div class="editor-container glass-panel">
+              <div class="editor-header">
+                <div>
+                  <div class="badge badge-accent">Instant Live Synchronization</div>
+                  <h3>PI Website Content Manager</h3>
+                  <p class="editor-sub">Easily publish news announcements, add graduating or new lab members, and update publications without touching any code.</p>
+                </div>
+                <button id="btnExportCodeIntra" class="btn btn-outline btn-sm">💾 Download Updated Code</button>
+              </div>
+
+              <!-- Sub-tabs for Editor -->
+              <div class="editor-tabs">
+                <button class="editor-tab-btn active" data-edtab="news">📢 Add News / Announcement</button>
+                <button class="editor-tab-btn" data-edtab="member">👥 Add Lab Member</button>
+                <button class="editor-tab-btn" data-edtab="pub">📄 Add Publication</button>
+              </div>
+
+              <!-- Panel 1: News -->
+              <div id="edtab-news" class="editor-panel active">
+                <div class="admin-form-group">
+                  <label>Announcement Headline / Achievement</label>
+                  <input type="text" id="intraNewsTitle" placeholder="e.g. Prof. Lo secures new France-Taiwan NSTC grant for 2027" />
+                </div>
+                <div class="admin-form-row">
+                  <div class="admin-form-group">
+                    <label>Year / Date Badge</label>
+                    <input type="text" id="intraNewsBadge" value="News 2026" />
+                  </div>
+                  <div class="admin-form-group">
+                    <label>Category Tag</label>
+                    <select id="intraNewsCategory">
+                      <option value="Research Grant">Research Grant</option>
+                      <option value="Publication">Publication</option>
+                      <option value="Award &amp; Honor">Award &amp; Honor</option>
+                      <option value="Lab Event">Lab Event</option>
+                    </select>
+                  </div>
+                </div>
+                <button id="btnIntraApplyNews" class="btn btn-primary btn-block">✨ Apply &amp; Preview Live on Website</button>
+              </div>
+
+              <!-- Panel 2: Member -->
+              <div id="edtab-member" class="editor-panel">
+                <div class="admin-form-row">
+                  <div class="admin-form-group">
+                    <label>Full Name (English)</label>
+                    <input type="text" id="intraMemName" placeholder="e.g. Chris Buchowiecki" />
+                  </div>
+                  <div class="admin-form-group">
+                    <label>Full Name (Chinese, optional)</label>
+                    <input type="text" id="intraMemChinese" placeholder="e.g. 布克理" />
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <div class="admin-form-group">
+                    <label>Role / Degree</label>
+                    <select id="intraMemRole">
+                      <option value="phd">PhD Candidate</option>
+                      <option value="ms">Master Student</option>
+                      <option value="ra">Research Assistant</option>
+                      <option value="undergrad">Undergraduate</option>
+                    </select>
+                  </div>
+                  <div class="admin-form-group">
+                    <label>Research Topic / Focus</label>
+                    <input type="text" id="intraMemTopic" placeholder="e.g. Multi-Modal Biomimetic Soft Robotic Gripper &amp; E-Skin" />
+                  </div>
+                </div>
+                <button id="btnIntraApplyMember" class="btn btn-primary btn-block">✨ Add Member &amp; Preview Live on Website</button>
+              </div>
+
+              <!-- Panel 3: Publication -->
+              <div id="edtab-pub" class="editor-panel">
+                <div class="admin-form-group">
+                  <label>Paper Title</label>
+                  <input type="text" id="intraPubTitle" placeholder="e.g. Electric-Field Engineering for Enhanced Capacitive Proximity Sensing" />
+                </div>
+                <div class="admin-form-group">
+                  <label>Authors</label>
+                  <input type="text" id="intraPubAuthors" placeholder="e.g. C. Buchowiecki, R. Selmi, M. Harnois, C.Y. Lo*" />
+                </div>
+                <div class="admin-form-row">
+                  <div class="admin-form-group">
+                    <label>Journal / Venue</label>
+                    <input type="text" id="intraPubJournal" value="Nature Sensors" />
+                  </div>
+                  <div class="admin-form-group">
+                    <label>Year</label>
+                    <input type="text" id="intraPubYear" value="2026" />
+                  </div>
+                </div>
+                <button id="btnIntraApplyPub" class="btn btn-primary btn-block">✨ Add Paper &amp; Preview Live on Website</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- View 2: Access Control & Accounts -->
+          <div class="intra-view" id="view-access">
+            <div class="table-container glass-panel">
+              <div class="table-actions">
+                <div>
+                  <div class="table-title">Lab User Management &amp; Security Permissions</div>
+                  <p class="text-muted" style="font-size:0.85rem;margin:0.25rem 0 0;">Manage who can edit website content and view sensitive chemical/equipment logs.</p>
+                </div>
+                <button id="btnAddNewUser" class="btn btn-primary btn-sm">➕ Add Student Account</button>
+              </div>
+
+              <table class="data-table" id="tableUsers">
+                <thead>
+                  <tr>
+                    <th>Account / Email</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Permission Level</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody">
+                  <tr>
+                    <td><code>chengyao@mx.nthu.edu.tw</code></td>
+                    <td><strong>Prof. Cheng-Yao Lo</strong></td>
+                    <td><span class="badge badge-purple">Principal Investigator</span></td>
+                    <td>Full Administrator (Website + Intranet + Security)</td>
+                    <td><span class="badge badge-accent">Active</span></td>
+                    <td><span class="text-muted">Master Admin (Protected)</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>chris@nthu.edu.tw</code></td>
+                    <td><strong>Chris Buchowiecki</strong></td>
+                    <td><span class="badge badge-cyan">PhD Candidate</span></td>
+                    <td>Lab Maintainer (Editor + SOPs + Inventory)</td>
+                    <td><span class="badge badge-accent">Active</span></td>
+                    <td>
+                      <button class="btn btn-outline btn-xs btn-revoke" data-user="Chris Buchowiecki">🚫 Revoke</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>pancham@nthu.edu.tw</code></td>
+                    <td><strong>Pancham</strong></td>
+                    <td><span class="badge badge-cyan">PhD Candidate</span></td>
+                    <td>Researcher (Inventory + Booking)</td>
+                    <td><span class="badge badge-accent">Active</span></td>
+                    <td>
+                      <button class="btn btn-outline btn-xs btn-revoke" data-user="Pancham">🚫 Revoke</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>ywchen@alumni.nthu.edu.tw</code></td>
+                    <td><strong>Yu-Wen Chen (陳裕文)</strong></td>
+                    <td><span class="badge badge-purple">Alumni</span></td>
+                    <td>Read-Only Archive</td>
+                    <td><span class="badge" style="background:rgba(255,255,255,0.1);color:var(--text-muted);">Offboarded</span></td>
+                    <td>
+                      <button class="btn btn-outline btn-xs btn-restore" data-user="Yu-Wen Chen">🔄 Re-activate</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Production Deployment Architecture Guide for Prof. Lo -->
+              <div class="access-architecture-card">
+                <h4>🛡️ How Access Control Works in Production (Zero-Maintenance for Prof. Lo)</h4>
+                <div class="arch-grid">
+                  <div class="arch-box">
+                    <div class="arch-icon">🌐</div>
+                    <h5>Option 1: University SSO / Cloudflare Zero Trust (Recommended)</h5>
+                    <p>Prof. Lo never manages passwords. He simply whitelists university emails (e.g., <code>@mx.nthu.edu.tw</code>). Students log in using their official Google/NTHU account with 2-factor authentication. When a student graduates, Prof. Lo deletes their email from the list in 5 seconds.</p>
+                  </div>
+                  <div class="arch-box">
+                    <div class="arch-icon">🔑</div>
+                    <h5>Option 2: Decap CMS / Git Gateway</h5>
+                    <p>Prof. Lo enters a student email into a web portal. An invitation link is automatically emailed to the student to set their own password. Roles can be revoked with a single toggle.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <!-- Database View 1: Precursor & Ink Repository -->
         <div class="intra-view active" id="view-precursor">
@@ -924,6 +1152,10 @@
         </div>
 
       </div>
+
+        </div>
+
+      </div>
     </section>
 
     <!-- Contact & Map Section -->
@@ -1029,121 +1261,8 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  
 
-  <!-- Interactive PI & Lab Admin Dashboard Modal -->
-  <div id="adminModal" class="admin-modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
-    <div class="admin-modal-card">
-      <div class="admin-modal-header">
-        <div class="admin-header-titles">
-          <div class="admin-badge">No Coding Required</div>
-          <h3 id="adminModalTitle">Lab Content Manager & Visual Dashboard</h3>
-          <p class="admin-subtitle">For Prof. Cheng-Yao Lo & Lab Administrators &bull; Live In-Browser Editor</p>
-        </div>
-        <button id="closeAdminModal" class="btn-close-modal" aria-label="Close Admin Modal">&times;</button>
-      </div>
-
-      <div class="admin-tabs">
-        <button class="admin-tab-btn active" data-tab="news">📢 Add News</button>
-        <button class="admin-tab-btn" data-tab="member">👥 Add Lab Member</button>
-        <button class="admin-tab-btn" data-tab="pub">📄 Add Publication</button>
-      </div>
-
-      <div class="admin-modal-body">
-        <!-- Tab 1: News -->
-        <div id="admin-tab-news" class="admin-tab-panel active">
-          <div class="admin-form-group">
-            <label>Announcement Headline / Achievement</label>
-            <input type="text" id="adminNewsTitle" placeholder="e.g. Prof. Lo secures new France-Taiwan NSTC grant for 2027" />
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-form-group">
-              <label>Year / Date Badge</label>
-              <input type="text" id="adminNewsBadge" value="News 2026" />
-            </div>
-            <div class="admin-form-group">
-              <label>Category Tag</label>
-              <select id="adminNewsCategory">
-                <option value="Research Grant">Research Grant</option>
-                <option value="Publication">Publication</option>
-                <option value="Award & Honor">Award & Honor</option>
-                <option value="Lab Event">Lab Event</option>
-              </select>
-            </div>
-          </div>
-          <button id="btnApplyNews" class="btn btn-primary btn-block">✨ Apply & Preview Live on Website</button>
-        </div>
-
-        <!-- Tab 2: Member -->
-        <div id="admin-tab-member" class="admin-tab-panel">
-          <div class="admin-form-row">
-            <div class="admin-form-group">
-              <label>Full Name (English)</label>
-              <input type="text" id="adminMemName" placeholder="e.g. Chris Buchowiecki" />
-            </div>
-            <div class="admin-form-group">
-              <label>Full Name (Chinese, optional)</label>
-              <input type="text" id="adminMemChinese" placeholder="e.g. 布克理" />
-            </div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-form-group">
-              <label>Role / Degree</label>
-              <select id="adminMemRole">
-                <option value="phd">PhD Candidate</option>
-                <option value="ms">Master Student</option>
-                <option value="ra">Research Assistant</option>
-                <option value="undergrad">Undergraduate</option>
-              </select>
-            </div>
-            <div class="admin-form-group">
-              <label>Photo</label>
-              <select id="adminMemPhoto">
-                <option value="assets/phi-tau-phi-rotated.jpg">Standard Lab Portrait</option>
-                <option value="assets/TYHsu.jpg">Portrait 2</option>
-                <option value="assets/YWChen-clock.jpg">Portrait 3</option>
-              </select>
-            </div>
-          </div>
-          <div class="admin-form-group">
-            <label>Research Topic / Focus</label>
-            <input type="text" id="adminMemTopic" placeholder="e.g. Multi-Modal Biomimetic Soft Robotic Gripper & E-Skin" />
-          </div>
-          <button id="btnApplyMember" class="btn btn-primary btn-block">✨ Add Member & Preview Live on Website</button>
-        </div>
-
-        <!-- Tab 3: Publication -->
-        <div id="admin-tab-pub" class="admin-tab-panel">
-          <div class="admin-form-group">
-            <label>Paper Title</label>
-            <input type="text" id="adminPubTitle" placeholder="e.g. Electric-Field Engineering for Enhanced Capacitive Proximity Sensing" />
-          </div>
-          <div class="admin-form-group">
-            <label>Authors</label>
-            <input type="text" id="adminPubAuthors" placeholder="e.g. C. Buchowiecki, R. Selmi, M. Harnois, C.Y. Lo*" />
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-form-group">
-              <label>Journal / Venue</label>
-              <input type="text" id="adminPubJournal" value="Nature Sensors" />
-            </div>
-            <div class="admin-form-group">
-              <label>Year</label>
-              <input type="text" id="adminPubYear" value="2026" />
-            </div>
-          </div>
-          <button id="btnApplyPub" class="btn btn-primary btn-block">✨ Add Paper & Preview Live on Website</button>
-        </div>
-      </div>
-
-      <div class="admin-modal-footer">
-        <div class="admin-status-note">
-          <span>💡 <strong>Live Visual Feedback:</strong> New items are dynamically inserted and highlighted immediately on this page.</span>
-        </div>
-        <button id="btnExportCode" class="btn btn-outline btn-sm">💾 Download Updated Code</button>
-      </div>
-    </div>
-  </div>
-
+    <script src="app.js"></script>
 </body>
 </html>
