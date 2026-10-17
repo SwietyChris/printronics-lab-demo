@@ -1,7 +1,8 @@
 /**
- * Flexible Printronics Lab - Interactive Controller
- * Self-Contained, Zero External CDN Dependencies
- * Includes Authenticated Intranet Portal, Access Control & Live PI Content Editor
+ * Flexible Printronics Lab - Interactive Offline Controller
+ * 100% Self-Contained, Zero External CDN Dependencies
+ * Includes: Research Pillars, Members Filter, Publications Filter,
+ * Authenticated Intranet Portal, Access Control Matrix & Live PI Editor
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. Mobile Navigation Drawer
+  // 2. Mobile Menu Drawer
   // ==========================================================================
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
@@ -44,57 +45,109 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 3. Member Directory Filter Tabs & Search
+  // 3. Research Pillars Tab Navigation (Image 1)
   // ==========================================================================
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const memberCards = document.querySelectorAll('.member-card');
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetId = `tab-${btn.dataset.tab}`;
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+
+  // ==========================================================================
+  // 4. Members Filtering & Live Search (Image 2)
+  // ==========================================================================
+  const memberFilterBtns = document.querySelectorAll('.btn-filter');
   const memberSearch = document.getElementById('memberSearch');
 
-  function filterMembers() {
-    const activeBtn = document.querySelector('.filter-btn.active');
-    const role = activeBtn ? activeBtn.getAttribute('data-role') : 'all';
-    const query = memberSearch ? memberSearch.value.trim().toLowerCase() : '';
+  let activeMemberFilter = 'all';
+  let memberSearchQuery = '';
 
+  function updateMemberVisibility() {
     const allCards = document.querySelectorAll('.member-card');
     allCards.forEach(card => {
-      const cardRole = card.getAttribute('data-role');
+      const role = card.dataset.role;
       const text = card.textContent.toLowerCase();
-      const matchesRole = role === 'all' || cardRole === role;
-      const matchesQuery = query === '' || text.includes(query);
+      const matchesFilter = activeMemberFilter === 'all' || role === activeMemberFilter;
+      const matchesSearch = !memberSearchQuery || text.includes(memberSearchQuery);
 
-      card.style.display = matchesRole && matchesQuery ? 'flex' : 'none';
+      if (matchesFilter && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
     });
   }
 
-  filterBtns.forEach(btn => {
+  memberFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      memberFilterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      filterMembers();
+      activeMemberFilter = btn.dataset.filter || 'all';
+      updateMemberVisibility();
     });
   });
 
   if (memberSearch) {
-    memberSearch.addEventListener('input', filterMembers);
-  }
-
-  // ==========================================================================
-  // 4. Publications Filter & Search
-  // ==========================================================================
-  const pubSearch = document.getElementById('pubSearch');
-  if (pubSearch) {
-    pubSearch.addEventListener('input', () => {
-      const query = pubSearch.value.trim().toLowerCase();
-      const allPubs = document.querySelectorAll('.pub-card');
-      allPubs.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(query) ? 'flex' : 'none';
-      });
+    memberSearch.addEventListener('input', (e) => {
+      memberSearchQuery = e.target.value.trim().toLowerCase();
+      updateMemberVisibility();
     });
   }
 
   // ==========================================================================
-  // 5. Toast & Highlight Animation Helpers
+  // 5. Document Center / Publications Filter & Search (Image 3)
+  // ==========================================================================
+  const pubFilters = document.querySelectorAll('.pub-filter');
+  const pubSearch = document.getElementById('pubSearch');
+
+  let activePubFilter = 'all';
+  let pubSearchQuery = '';
+
+  function updatePubVisibility() {
+    const allPubs = document.querySelectorAll('.pub-card');
+    allPubs.forEach(card => {
+      const cat = card.dataset.category;
+      const text = card.textContent.toLowerCase();
+      const matchesFilter = activePubFilter === 'all' || cat === activePubFilter;
+      const matchesSearch = !pubSearchQuery || text.includes(pubSearchQuery);
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  pubFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pubFilters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activePubFilter = btn.dataset.pub || 'all';
+      updatePubVisibility();
+    });
+  });
+
+  if (pubSearch) {
+    pubSearch.addEventListener('input', (e) => {
+      pubSearchQuery = e.target.value.trim().toLowerCase();
+      updatePubVisibility();
+    });
+  }
+
+  // ==========================================================================
+  // 6. Toast & Highlight Animation Helpers
   // ==========================================================================
   function showToast(msg) {
     let toast = document.querySelector('.admin-toast');
@@ -115,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 6. Authenticated Intranet Portal & Access Control Flow
+  // 7. Authenticated Intranet Portal & Access Control Flow
   // ==========================================================================
   const authGate = document.getElementById('intranetAuthGate');
   const workspace = document.getElementById('intranetWorkspace');
@@ -138,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initial check
+  // Initial authentication check
   updateIntranetAuthUI();
 
   if (loginForm) {
@@ -175,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. Intranet Tab Navigation
+  // 8. Intranet Database Tab Switcher & Table Search
   // ==========================================================================
   const intraTabs = document.querySelectorAll('.intra-tab');
   const intraViews = document.querySelectorAll('.intra-view');
@@ -186,14 +239,36 @@ document.addEventListener('DOMContentLoaded', () => {
       intraViews.forEach(v => v.classList.remove('active'));
 
       tab.classList.add('active');
-      const target = tab.getAttribute('data-intra');
-      const view = document.getElementById(`view-${target}`);
-      if (view) view.classList.add('active');
+      const targetView = document.getElementById(`view-${tab.dataset.intra}`);
+      if (targetView) {
+        targetView.classList.add('active');
+      }
     });
   });
 
+  // Generic Table Filter Helper
+  function bindTableFilter(inputId, tableId) {
+    const input = document.getElementById(inputId);
+    const table = document.getElementById(tableId);
+    if (!input || !table) return;
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      const rows = table.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  }
+
+  bindTableFilter('filterPrecursor', 'tablePrecursor');
+  bindTableFilter('filterMcu', 'tableMcu');
+  bindTableFilter('filterSubstrate', 'tableSubstrate');
+  bindTableFilter('filterMaintenance', 'tableMaintenance');
+
   // ==========================================================================
-  // 8. Embedded PI Visual Website Editor Logic
+  // 9. Embedded PI Visual Website Editor Logic
   // ==========================================================================
   const edTabs = document.querySelectorAll('.editor-tab-btn');
   const edPanels = document.querySelectorAll('.editor-panel');
@@ -209,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 8a. Apply News
+  // 9a. Apply News
   const btnApplyNews = document.getElementById('btnIntraApplyNews');
   if (btnApplyNews) {
     btnApplyNews.addEventListener('click', () => {
@@ -243,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8b. Apply Member
+  // 9b. Apply Member
   const btnApplyMember = document.getElementById('btnIntraApplyMember');
   if (btnApplyMember) {
     btnApplyMember.addEventListener('click', () => {
@@ -277,11 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast(`Added: ${name} to Lab Members!`);
         document.getElementById('intraMemName').value = '';
         document.getElementById('intraMemChinese').value = '';
+        updateMemberVisibility();
       }
     });
   }
 
-  // 8c. Apply Publication
+  // 9c. Apply Publication
   const btnApplyPub = document.getElementById('btnIntraApplyPub');
   if (btnApplyPub) {
     btnApplyPub.addEventListener('click', () => {
@@ -313,11 +389,12 @@ document.addEventListener('DOMContentLoaded', () => {
         flashAndScroll(card);
         showToast(`Added Paper: "${title.substring(0, 32)}..."`);
         document.getElementById('intraPubTitle').value = '';
+        updatePubVisibility();
       }
     });
   }
 
-  // 8d. Export & Download Updated Code
+  // 9d. Export & Download Updated Code
   const btnExport = document.getElementById('btnExportCodeIntra');
   if (btnExport) {
     btnExport.addEventListener('click', () => {
@@ -338,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 9. Interactive Access Control (User Management)
+  // 10. Interactive Access Control (User Management Matrix)
   // ==========================================================================
   const userTableBody = document.getElementById('userTableBody');
   const btnAddNewUser = document.getElementById('btnAddNewUser');
@@ -397,29 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 10. Generic Inventory Table Filters
-  // ==========================================================================
-  function bindTableFilter(inputId, tableId) {
-    const input = document.getElementById(inputId);
-    const table = document.getElementById(tableId);
-    if (!input || !table) return;
-
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      const rows = table.querySelectorAll('tbody tr');
-      rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(q) ? '' : 'none';
-      });
-    });
-  }
-
-  bindTableFilter('filterPrecursor', 'tablePrecursor');
-  bindTableFilter('filterMcu', 'tableMcu');
-  bindTableFilter('filterSubstrate', 'tableSubstrate');
-  bindTableFilter('filterMaintenance', 'tableMaintenance');
-
-  // ==========================================================================
   // 11. Plaintext Email Obfuscation Remediation
   // ==========================================================================
   const obfuscatedLinks = document.querySelectorAll('.obfuscated-email');
@@ -430,5 +484,5 @@ document.addEventListener('DOMContentLoaded', () => {
     link.title = `Send Email to ${user}@${domain}`;
   });
 
-  console.log("Flexible Printronics Lab Controller loaded successfully.");
+  console.log("Flexible Printronics Lab Controller loaded successfully with full tab & filter handlers.");
 });
